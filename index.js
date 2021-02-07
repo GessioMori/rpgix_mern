@@ -4,10 +4,14 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import userRoutes from "./routes/users.js";
 import groupRoutes from "./routes/groups.js";
 import charRoutes from "./routes/characters.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
