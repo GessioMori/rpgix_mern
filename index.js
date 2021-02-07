@@ -17,9 +17,9 @@ app.use(bodyParser.urlencoded({ limit: "20mb", extended: true }));
 
 app.use(cors());
 
-app.use("/user", userRoutes);
-app.use("/group", groupRoutes);
-app.use("/character", charRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/group", groupRoutes);
+app.use("/api/character", charRoutes);
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
@@ -33,6 +33,16 @@ mongoose
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
   )
   .catch((error) => console.log(error.message));
+
+if (
+  process.env.NODE_ENV === "production" ||
+  process.env.NODE_ENV === "staging"
+) {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+}
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
