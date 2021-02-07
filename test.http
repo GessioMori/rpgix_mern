@@ -1,0 +1,79 @@
+POST http://localhost:5000/user/signup
+content-type: application/json
+
+{ "username": "gessiomori2",
+"password": "123123",
+"confirmPassword": "123123",
+"name": "Gessio Mori"
+ }
+
+###
+
+POST http://localhost:5000/user/signin
+content-type: application/json
+
+{ "username": "gessiomori123",
+"password": "123123"}
+
+###
+
+POST http://localhost:5000/group/create
+content-Type: application/json
+
+{"title": "title",
+"code": "code1",
+"master": "master",
+"image": "imgString"}
+
+###
+
+GET http://localhost:5000/group/6010d11ed915251ace7ecdcf
+
+###
+
+GET http://localhost:5000/group/6010d11ed915251ace7ecdc1
+
+
+###
+
+POST http://localhost:5000/group/enter/60103408e304da12c2798cba
+content-Type: application/json
+
+{"code": "enterChar"}
+
+###
+
+POST http://localhost:5000/character/create/60170e5d89b7e712ae0256d3
+content-Type: application/json
+
+{
+    "user": "6013ec6dae98280d02e551ee",
+    "name": "charName4",
+    "avatar": {"accessoriesType": "Prescription02", "clotheColor": "Gray02", "clotheType": "CollarSweater", "eyeType": "Side", "eyebrowType": "AngryNatural", "facialHairColor": "Blonde", "facialHairType": "BeardLight", "hairColor": "SilverGray", "hatColor": "", "mouthType": "Serious", "skinColor": "DarkBrown", "topType": "ShortHairDreads01"},
+    "attributes": [1, 2, 3, 4, 5, 6],
+    "goodTraits": "Im a good boy",
+    "badTraits": "Im a bad boy",
+    "excelentTraits": "I know how to dance"
+  }
+
+###
+POST http://localhost:5000/group/getgroup/601878b6e58b2926c070fe67
+content-Type: application/json
+
+{"userId": "60187aa8e58b2926c070fe6e"}
+
+###
+PATCH http://localhost:5000/group/createchapter/601a91e60b9bc00ebeb8fb86
+content-Type: application/json
+
+{"userId": "601a91d40b9bc00ebeb8fb85",
+"title": "title2",
+"content": "content2",
+"image": "image2"}
+
+###
+PATCH http://localhost:5000/group/deletechapter/601a91e60b9bc00ebeb8fb86
+content-Type: application/json
+
+{"chapterId": "601c44dd8b228e0e890ab7c7",
+"userId": "601a91d40b9bc00ebeb8fb85"}
